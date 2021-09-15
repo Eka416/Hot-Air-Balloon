@@ -8,28 +8,29 @@
     
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAI4_-3NV7GxbFta2rnGbY85kB9olC4DOM",
-    authDomain: "hot-air-balloon-e9f0d.firebaseapp.com",
-    databaseURL: "https://hot-air-balloon-e9f0d-default-rtdb.firebaseio.com",
-    projectId: "hot-air-balloon-e9f0d",
-    storageBucket: "hot-air-balloon-e9f0d.appspot.com",
-    messagingSenderId: "364653245592",
-    appId: "1:364653245592:web:52cca2ef889ef4ee8e4ced"
-  };
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAI4_-3NV7GxbFta2rnGbY85kB9olC4DOM",
+  authDomain: "hot-air-balloon-e9f0d.firebaseapp.com",
+  databaseURL: "https://hot-air-balloon-e9f0d-default-rtdb.firebaseio.com",
+  projectId: "hot-air-balloon-e9f0d",
+  storageBucket: "hot-air-balloon-e9f0d.appspot.com",
+  messagingSenderId: "364653245592",
+  appId: "1:364653245592:web:52cca2ef889ef4ee8e4ced"
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 </script>
+
 
 
 

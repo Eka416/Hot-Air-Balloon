@@ -1,5 +1,6 @@
 var balloon,balloonImage1,balloonImage2;
 var database, pos
+var position
 function preload(){
    bg =loadImage("cityImage.png");
    balloonImage1=loadAnimation("hotairballoon1.png");
@@ -17,8 +18,8 @@ function setup() {
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
 
-  var ball_pos = database.ref("ball/height");
-  ball_pos.on("value", readPosition, showError)
+  var balloonPosition = database.ref("balloon/height");
+  balloonPosition.on("value", readPosition, showError)
 
   textSize(20); 
 }
@@ -45,7 +46,7 @@ function draw() {
   else if(keyDown(DOWN_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     updatePosition(0,10)
-    balloon.scale = balloon.scale + 0.01
+    balloon.scale = balloon.scale - 0.01
   }
 
   drawSprites();
@@ -55,17 +56,20 @@ function draw() {
   text("**Use arrow keys to move Hot Air Balloon!",40,40);
 }
 
-function updatePosition(x,y){
-  database.ref("ball/height").set({
-      'x': position.x + x,
-      'y': position.y + y
-  })
-}
+
+
 function readPosition(data) {
   position = data.val();
-  balloon.x = height.x;
-  balloon.y = height.y;
+  balloon.x = position.x;
+  balloon.y = position.y;
 }
 function showError(){
   console.log("Error writing")
+}
+
+function updatePosition(x,y){
+  database.ref('balloon/height').set({
+      'x': position.x + x,
+      'y': position.y + y,
+  })
 }
